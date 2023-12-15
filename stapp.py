@@ -2,8 +2,6 @@ import streamlit as st
 import tensorflow as tf
 import pandas as pd
 import numpy as np
-import sklearn
-from sklearn.preprocessing import StandardScaler
 import joblib  
 
 # Load the model
@@ -13,14 +11,6 @@ def load_model():
     return model
 
 model = load_model()
-
-# Load the scaler (if you have a saved scaler file)
-@st.cache(allow_output_mutation=True)
-def load_scaler():
-    scaler = joblib.load('scaler_filename.pkl') 
-    return scaler
-
-scaler = load_scaler()
 
 # Streamlit App Title
 st.write("# Bike Sharing Demand Prediction")
