@@ -27,12 +27,6 @@ st.write("# Bike Sharing Demand Prediction")
 # CSV File Uploader
 uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
 
-# Preprocess the input and make a prediction
-def preprocess_data(df):
-    X = df.drop(columns=["cnt", "dteday"])  # Adjust the columns as per your data
-    X_scaled = scaler.transform(X)  # Scaling the features using the loaded scaler
-    return X_scaled
-
 def make_prediction(data, model):
     prediction = model.predict(data)
     return prediction
