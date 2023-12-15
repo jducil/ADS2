@@ -4,5 +4,4 @@ python-dateutil
 numpy==1.23.5
 matplotlib
 seaborn
-scikit-learn
 tensorflow==2.15.0
