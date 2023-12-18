@@ -1,8 +1,6 @@
 import streamlit as st
 import tensorflow as tf
 import pandas as pd
-import numpy as np
-
 
 # Load the model
 @st.cache(allow_output_mutation=True)
@@ -17,6 +15,12 @@ st.write("# Bike Sharing Demand Prediction")
 
 # CSV File Uploader
 uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+
+# Define a function to preprocess the data
+def preprocess_data(input_df):
+    # Your data preprocessing code here
+    # Ensure that the input data has the same features and preprocessing as your training data
+    return preprocessed_data
 
 def make_prediction(data, model):
     prediction = model.predict(data)
