@@ -17,10 +17,6 @@ st.write("# Bike Sharing Demand Prediction")
 uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
 
 # Define a function to preprocess the data
-def preprocess_data(input_df):
-    # Your data preprocessing code here
-    # Ensure that the input data has the same features and preprocessing as your training data
-    return preprocessed_data
 
 def make_prediction(data, model):
     prediction = model.predict(data)
