@@ -20,4 +20,4 @@ uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["cs
 
 def make_prediction(data, model):
     prediction = model.predict(data)
-    return prediction
+return prediction
