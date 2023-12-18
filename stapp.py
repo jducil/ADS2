@@ -16,25 +16,18 @@ model = load_model()
 st.write("# Bike Sharing Demand Prediction")
 
 # CSV File Uploader
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 
 def make_prediction(data, model):
     prediction = model.predict(data)
     return prediction
 
 if uploaded_file is not None:
-    try:
-        # Read and preprocess the data
-        input_df = pd.read_csv(uploaded_file)
-        preprocessed_data = preprocess_data(input_df)
+    # Use pandas to read the uploaded CSV file
+    df = pd.read_csv(uploaded_file)
 
-        if st.sidebar.button('Predict Demand'):
-            prediction = make_prediction(preprocessed_data, model)
-            # Display the prediction
-            st.subheader("Bike Sharing Demand Prediction")
-            st.write(f"Predicted Bike Demand: {prediction[0][0]:.2f} bikes")
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+    # Display the data
+    st.dataframe(df)
 
 else:
     st.sidebar.write("Please upload a CSV file to make predictions.")
