@@ -4,6 +4,12 @@ import pandas as pd
 import numpy as np
 
 
+# Streamlit App Title
+st.write("# Bike Sharing Demand Prediction")
+
+# CSV File Uploader
+uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
+
 # Load the model
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -11,12 +17,6 @@ def load_model():
     return model
 
 model = load_model()
-
-# Streamlit App Title
-st.write("# Bike Sharing Demand Prediction")
-
-# CSV File Uploader
-uploaded_file = st.file_uploader("Upload your input CSV file", type=["csv"])
 
 def make_prediction(data, model):
     prediction = model.predict(data)
